@@ -1,5 +1,10 @@
 <h1>Results from Spotify</h1>
 
-<p>
-  <%= query %>
-</p>
+<h3>List of Artist's Alubums</h3>
+<ul>
+  <% data.albums.items.forEach(function(object){ %>
+    <li>
+      <%= object["name"] %>
+    </li>
+  <% }) %>
+</ul>
