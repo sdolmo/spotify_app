@@ -1,10 +1,17 @@
 <h1>Results from Spotify</h1>
 
-<h3>List of Artist's Alubums</h3>
+<h3>List of  Alubums</h3>
 <ul>
   <% data.albums.items.forEach(function(object){ %>
+    <% if(object["album_type"] === "album" ) {%>
     <li>
       <%= object["name"] %>
+      <div class="thumbnail">
+          <img src="<%= object.images[2].url %>" album_id="<%= object.id %>"/>
+      </div>
     </li>
+    <% } %>
   <% }) %>
 </ul>
+
+<a href="/">Search Again</a>
