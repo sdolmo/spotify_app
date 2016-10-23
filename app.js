@@ -15,12 +15,10 @@ app.get("/", function(req, res){
 app.get("/results", function(req, res){
   var query = req.query.search;
   var url = "https://api.spotify.com/v1/search?q=" + query + "&type=album";
-  var data;
   request(url, function(error, response, body){
         if(!error && response.statusCode == 200) {
-          data = JSON.parse(body); // parse the body response to access the object rather than a string
+          var data = JSON.parse(body); // parse the body response to access the object rather than a string
           res.render("results", {data: data});
-          getID(data);
         };
     });
 })
